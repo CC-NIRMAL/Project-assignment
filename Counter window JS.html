@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter window </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .counter {
+      font-size: 5rem;
+      margin: 20px;
+      font-weight: bold;
+      background-color: salmon;
+      padding: 1cm;
+      border-radius: 10%;
+    }
+ 
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+
+    button.increment {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    button.reset {
+      background-color: #f44336;
+      color: white;
+    }
+
+    button.decrement {
+      background-color: #2196f3;
+      color: white;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- Here is the code segment for buttons -->
+
+  <div class="counter" id="counter">0</div>
+  <div class="buttons">
+    <button class="decrement" id="decrementBtn">Decrement</button>
+    <button class="reset" id="resetBtn">Reset</button>
+    <button class="increment" id="incrementBtn">Increment</button>
+  </div>
+
+  <script>
+    
+    let count = 0; // Initial counter value
+
+    // Get references to the HTML elements
+    const counterDisplay = document.getElementById('counter');
+    const incrementBtn = document.getElementById('incrementBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+
+
+
+
+
+    // Function to update the counter display
+    function updateCounter() {
+      counterDisplay.textContent = count;
+      counterDisplay.textContent = count === 5 ? "Five" : count;
+    }
+
+    // Increment button functionality
+    incrementBtn.addEventListener('click', () => {
+        if(count <10){
+      count++;
+      updateCounter();}
+    });
+
+    // Decrement button functionality
+    decrementBtn.addEventListener('click', () => {
+      if (count > 0) {
+        count--;
+        updateCounter();
+      }
+    });
+
+    // Reset button functionality
+    resetBtn.addEventListener('click', () => {
+      count = 0;
+      updateCounter();
+    });
+
+
+
+
+  </script>
+
+</body>
+</html>
