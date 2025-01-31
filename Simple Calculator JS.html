@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+
+    <!-- This code segment implement using additional resousers -->
+    <script>
+        function updateButton() {
+            let operation = document.getElementById("operation").value;
+            let button = document.getElementById("calculateButton");
+            button.innerText = operation;
+        }
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+            let result;
+            
+
+
+            //check both inputs have values 
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Please enter valid numbers";
+            } else {
+                switch (operation) {
+                    case "Sum":
+                        result = num1 + num2;
+                        break;
+                    case "Subtraction":
+                        result = num1 - num2;
+                        break;
+                    case "Multiplication":
+                        result = num1 * num2;
+                        break;
+                    case "Division":
+                        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                        break;
+                    default:
+                        result = "Invalid Operation";
+                }
+            }
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+       <title>calculator</title>
+
+    <style>
+   
+   
+p{
+       color: blue;
+       font-size: 20px;
+       font-family: 'Courier New', Courier, monospace;
+       font-style:initial;
+       font-weight: bolder;
+       
+       
+   }
+   
+p,select,input{
+
+    background-color: aquamarine;
+    margin:inherit;
+
+    
+   
+}
+   </style>
+
+
+
+
+
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <br>
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br>
+    <select id="operation" onchange="updateButton()">
+        <option value="Sum">Sum</option>
+        <option value="Subtraction">Subtraction</option>
+        <option value="Multiplication">Multiplication</option>
+        <option value="Division">Division</option>
+    </select>
+    
+    <button id="calculateButton" onclick="calculate()">Sum</button>
+    
+    <p id="result">Result: </p>
+</body>
+</html>
