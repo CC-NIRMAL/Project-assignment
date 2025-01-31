@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+
+<style>
+
+ 
+body{
+
+    background-color: rgb(255, 255, 255);
+}
+
+
+input{
+
+    margin:1cm;
+    padding: 1%;
+    border-color: rgb(52, 131, 41);
+    border-style: solid;
+    border-width: 2px;
+   
+}
+
+.p{
+    font-weight: bolder;
+    font-style: italic;
+    color: rgb(0, 0, 0);
+    size: inherit;
+}
+
+.d1{
+    background-color: rgb(255, 255, 255);
+    margin: 1% ;
+    padding: 1%;
+    width:fit-content;
+    margin:inherit;
+     
+}
+
+.d2{
+    background-color: rgb(255, 255, 255);}
+
+/*This button css code segment  taken from W3C*/
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 1px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin: inherit;
+  border-radius: 2%;
+}
+
+.button:hover {
+
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.sel{
+
+    background-color: #04AA6D; /* Green */
+    padding: 5px 30px;  
+
+}
+
+body{
+
+    background-color: rgb(228, 226, 222);
+}
+
+h4{
+    margin:inherit;
+}
+
+
+</style>
+
+</head>
+
+
+
+
+
+
+<body>
+<blockquote>
+
+    <div class="d2">
+
+<input type="text" id="userInput" name="text" placeholder="Enter item's name here" >
+
+    <select class="sel" id="operation">
+        <option value=''>None</option>
+        <option value="Apple">Apple</option>
+        <option value="Banana">Banana</option>
+        <option value="Orange">Orange</option>
+        <option value="Mango">Mango</option>
+        <option value="Grapes">Grapes</option>
+        <option value="Pineapple">Pineapple</option>
+        <option value="Strawberry">Strawberry</option>
+        <option value="Watermelon">Watermelon</option>
+        <option value="Papaya">Papaya</option>
+        <option value="Cherry">Cherry</option>
+    </select>
+    
+   </div> 
+<p id="error" class="error"></p>
+<!--when click Add button  the entered value is clear from text box and selection menu  -->
+<button class="button"id="add" onclick="displayInput(); document.getElementById('userInput').value = ''; document.getElementById('operation').value='';">
+    <p>ADD TO LIST</p>
+</button><br>
+
+<div class="d1">
+<h4>LIST OF ITEMS </h4>
+<p id="display"></p><br>
+</div>
+
+
+</blockquote>
+ 
+   <script>
+
+ let i=0,c=0;
+
+ let text = "";
+       
+        function displayInput() {
+
+           
+           
+           
+           
+            
+            let inputText = document.getElementById("userInput").value; // in here assing valve of user input  field to inputext
+                                                                        
+            if ( inputText == "" ||  inputText == null )  {
+            inputText =document.getElementById("operation").value;}     // in here  assing valve  using selection menu if there is on input value in text box 
+
+
+            if ( inputText == "" ||  inputText == null)  {
+                inputText= "Error: No item entered. Please enter a value in the input field before proceeding.";
+                document.getElementById("error").innerText =inputText;
+                exit;
+            } else {
+
+                document.getElementById("error").innerText=""; //this code line use to hide error message after enter value for input field
+
+
+
+            i=i+1;
+
+
+            text +=i +":    "+inputText + "<br>";
+            document.getElementById("display").innerHTML =text; // inhere used inner html  element property
+
+  
+          }
+        
+        }
+       
+    </script>
+
+
+
+</body>
+</html>
+
+
+
